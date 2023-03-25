@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     res.json({message: "Welcome to modjoul backend application."});
 });
 
-// require("./app/routes/sensor-data.route")(app);
+require("./app/routes/sensor-data.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8083;
