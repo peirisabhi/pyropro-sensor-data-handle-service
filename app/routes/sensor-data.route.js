@@ -1,7 +1,7 @@
 const {use} = require("express/lib/router");
-const user = require("../controller/post.controller");
+const user = require("../controller/sensor-data.controller");
 module.exports = app => {
-    const post = require("../controller/post.controller");
+    const post = require("../controller/sensor-data.controller");
 
     let router = require("express").Router();
 

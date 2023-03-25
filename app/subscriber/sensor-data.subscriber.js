@@ -1,4 +1,5 @@
 const mqtt = require("mqtt");
+const sensorDataService = require("../service/sensor-data.service")
 
 var mqttClient;
 
@@ -43,6 +44,12 @@ exports.connectToBroker = () => {
     console.log(
       "Received Message: " + message.toString() + "\nOn topic: " + topic
     );
+
+    let data = JSON.parse(message);
+    console.log("data " + data)
+
+    console.log("message.temperature -  " + data.temperature)
+    sensorDataService.create(data)
   });
 };
 

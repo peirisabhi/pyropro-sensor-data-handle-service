@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // app.use(fileUpload());
 
-const sensorDataSubscriber = require(`./app/service/sensor-data.subscriber`)
+const sensorDataSubscriber = require("./app/subscriber/sensor-data.subscriber")
 sensorDataSubscriber.connectToBroker();
 sensorDataSubscriber.subscribeToTopic("sensor-data");
 
@@ -35,13 +35,12 @@ db.mongoose
         process.exit();
     });
 
-// simple route
+// simple routes
 app.get("/", (req, res) => {
     res.json({message: "Welcome to modjoul backend application."});
 });
 
-require("./app/route/user.route")(app);
-require("./app/route/post.route")(app);
+// require("./app/routes/sensor-data.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8083;
