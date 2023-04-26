@@ -1,7 +1,9 @@
 const mqtt = require("mqtt");
 const sensorDataService = require("../service/sensor-data.service")
+const Producer = require("../producer/mq.producer")
 
-var mqttClient;
+let mqttClient;
+let producer = new Producer();
 
 // Change this to point to your MQTT broker or DNS name
 const mqttHost = "13.50.105.25";
@@ -50,6 +52,8 @@ exports.connectToBroker = () => {
 
     console.log("message.temperature -  " + data.temperature)
     sensorDataService.create(data)
+    let promise = producer.publishMessageForNotification(data);
+    console.log("promise " + promise)
   });
 };
 
