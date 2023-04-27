@@ -52,8 +52,9 @@ exports.connectToBroker = () => {
 
     console.log("message.temperature -  " + data.temperature)
     sensorDataService.create(data)
-    let promise = producer.publishMessageForNotification(data);
-    console.log("promise " + promise)
+    producer.publishMessageForNotification(data);
+    producer.publishMessageForFireDetection(data);
+    // console.log("promise " + promise)
   });
 };
 

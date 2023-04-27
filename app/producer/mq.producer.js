@@ -39,12 +39,12 @@ class Producer {
 
         await this.channel.publish(
             exchangeName,
-            mqConfig.rabbitMQ.fireDetectionRoutingKey,
+            mqConfig.rabbitMQ.firePredictionRoutingKey,
             Buffer.from(JSON.stringify(data))
         );
 
         console.log(
-            `The new ${mqConfig.rabbitMQ.notificationRoutingKey} log is sent to exchange ${exchangeName}`
+            `The new ${mqConfig.rabbitMQ.firePredictionRoutingKey} log is sent to exchange ${exchangeName}`
         );
     }
 }
