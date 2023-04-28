@@ -52,7 +52,11 @@ exports.connectToBroker = () => {
 
     console.log("message.temperature -  " + data.temperature)
     sensorDataService.create(data)
-    producer.publishMessageForNotification(data);
+    data['data_from'] = 'pyropro-sensor-data-handle-service'
+    if(data.flame_detection){
+        producer.publishMessageForNotification(data);
+    }
+
     producer.publishMessageForFireDetection(data);
     // console.log("promise " + promise)
   });
