@@ -23,7 +23,7 @@ sensorDataSubscriber.subscribeToTopic("sensor-data");
 
 const db = require("./app/model");
 db.mongoose
-    .connect("mongodb://127.0.0.1:27017/test_db", {
+    .connect(db.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

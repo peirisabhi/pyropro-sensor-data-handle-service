@@ -17,7 +17,7 @@ exports.connectToBroker = () => {
   const hostURL = `${protocol}://${mqttHost}:${port}`;
 
   const options = {
-    keepalive: 60,
+    keepalive: 180,
     clientId: clientId,
     protocolId: "MQTT",
     protocolVersion: 4,
@@ -50,7 +50,6 @@ exports.connectToBroker = () => {
     let data = JSON.parse(message);
     console.log("data " + data)
 
-    console.log("message.temperature -  " + data.temperature)
     sensorDataService.create(data)
     data['data_from'] = 'pyropro-sensor-data-handle-service'
     if(data.flame_detection){
