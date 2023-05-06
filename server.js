@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:4201"
+    origin: "http://localhost:4200"
 };
 
 app.use(cors(corsOptions));
@@ -37,7 +37,7 @@ db.mongoose
 
 // simple routes
 app.get("/", (req, res) => {
-    res.json({message: "Welcome to modjoul backend application."});
+    res.json({message: "Welcome to pyropro sensor data service."});
 });
 
 require("./app/routes/sensor-data.route")(app);

@@ -1,7 +1,7 @@
 const {use} = require("express/lib/router");
 const user = require("../controller/sensor-data.controller");
 module.exports = app => {
-    const post = require("../controller/sensor-data.controller");
+    const sensorData = require("../controller/sensor-data.controller");
 
     let router = require("express").Router();
 
@@ -9,7 +9,7 @@ module.exports = app => {
     // router.post("/", post.create);
 
     // Retrieve all posts
-    router.get("/", post.findAll);
+    router.post("/", sensorData.findAll);
 
     // Retrieve a single post with id
     // router.get("/:id", post.findOne);

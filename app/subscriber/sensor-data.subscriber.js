@@ -52,7 +52,8 @@ exports.connectToBroker = () => {
 
     sensorDataService.create(data)
     data['data_from'] = 'pyropro-sensor-data-handle-service'
-    if(data.flame_detection){
+    data['type'] = 'fire detection'
+    if(data.flame){
         producer.publishMessageForNotification(data);
     }
 

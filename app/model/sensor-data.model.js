@@ -3,7 +3,7 @@ module.exports = mongoose => {
         {
             temperature: Number,
             humidity: Number,
-            time: String,
+            time: Number,
             device_id: String,
             co_detection: Number,
             co_level: Number,
@@ -13,7 +13,9 @@ module.exports = mongoose => {
             bmp_pressure: Number,
             bmp_sea_level_pressure: Number,
             bmp_altitude: Number,
-            bmp_altitude_with_sea_level_pressure: Number
+            bmp_altitude_with_sea_level_pressure: Number,
+            wind_rpm: Number,
+            wind_speed: Number,
 
         },
         {timestamps: true}
